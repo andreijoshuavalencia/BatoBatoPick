@@ -6,7 +6,7 @@ function computerPlay(){
 }
 function playRound(player, computer){
     let roundWinner = '';
-    let choice = player.toLowerCase();
+    let choice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
     console.log("Player chose " + choice);
     console.log("Computer chose " + computer);
 
@@ -31,17 +31,30 @@ function playRound(player, computer){
 function game(){
     let roundWinner = "none";
     let playerPoints = 0;
+    let computerPoints = 0;
+    let currentWinner;
 
-    for (let i = 0; i < 5; i++ ){
-        let currentWinner = playRound(playerSelection, computerPlay());
+    // for loop
+    // for (let i = 0; i < 5; i++ ){
+    //     let currentWinner = playRound(playerSelection, computerPlay());
+    //     if (currentWinner === 'Win'){
+    //         playerPoints++;
+    //     }
+    // }
+
+    do {
+        currentWinner = playRound(playerSelection, computerPlay());
         if (currentWinner === 'Win'){
             playerPoints++;
+        }else{
+            computerPoints++;
         }
-    }
+    } while (playerPoints < 5  && computerPoints < 5);
     
-    console.log(playerPoints);
+    console.log("Player score: " + playerPoints);
+    console.log("Computer score: " + computerPoints);
 }
-const playerSelection = "scissors";
+const playerSelection = "rock";
 // let computerSelection = computerPlay();
 game();
 // console.log(playRound(playerSelection, computerSelection));
