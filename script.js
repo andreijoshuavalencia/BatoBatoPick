@@ -29,17 +29,15 @@ function playRound(player, computer){
 }
 
 function game(){
-    let roundResult = '';
+    let roundWinner = "none";
     let playerPoints = 0;
     for (let i = 0; i < 5; i++ ){
-        console.log(playRound(playerSelection, computerSelection));
-        if(roundResult.includes("Win")){
-            playerPoints += 1;
+        let currentWinner = playRound(playerSelection, computerSelection);
+        if (currentWinner === 'Win'){
+            playerPoints++;
         }
-        console.log(playerPoints);
     }
-    
-
+    console.log(playerPoints);
 }
 const playerSelection = "rock";
 const computerSelection = computerPlay();
